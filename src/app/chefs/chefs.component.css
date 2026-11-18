@@ -1,0 +1,19 @@
+.chef-image {
+    height: 240px;
+    object-fit: cover;
+}
+
+.card {
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-title {
+    font-size: 22px;
+    font-weight: bold;
+}

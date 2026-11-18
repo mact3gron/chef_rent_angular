@@ -1,0 +1,13 @@
+main {
+    min-height: 20vh;
+    padding-top: 20px;
+}
+
+h1 {
+    font-weight: 700;
+    color: #212529;
+}
+
+p {
+    color: #5555;
+}

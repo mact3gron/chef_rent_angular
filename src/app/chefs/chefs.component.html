@@ -1,0 +1,79 @@
+
+<section class="container my-5">
+
+  <h2 class="text-center mb-4">
+    Bérelhető szakácsaink
+  </h2>
+
+  @if (loading()) {
+    <p class="text-center">
+      Szakácsok betöltése...
+    </p>
+  } @else if (error()) {
+    <div class="alert alert-danger">
+      Hiba történt a szakácsok betöltése során!
+    </div>
+  } @else {
+
+    <div class="row g-4">
+
+      @for (chef of chefs(); track chef.id) {
+
+        <div class="col-12 col-md-6 col-lg-4">
+
+          <div class="card h-100 shadow-sm">
+
+            <img
+              [src]="chef.image"
+              [alt]="chef.name"
+              class="card-img-top chef-image"
+            >
+
+            <div class="card-body d-flex flex-column">
+
+              <h5 class="card-title">
+                {{ chef.name }}
+              </h5>
+
+              <p class="text-muted">
+                <strong>Konyha:</strong>
+                {{ chef.cuisine }}
+              </p>
+
+              <p class="card-text">
+                {{ chef.description }}
+              </p>
+
+              <p class="card-text">
+                <strong>Alapdíj:</strong>
+                {{ chef.base_fee }} Ft
+              </p>
+
+              <p class="card-text">
+                <strong>Napidíj:</strong>
+                {{ chef.daily_rate }} Ft
+              </p>
+
+              <button
+                class="btn btn-success mt-auto"
+                (click)="berel(chef)"
+              >
+                + Bérel
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      } @empty {
+        <p class="text-center">
+          Nincs elérhető szakács jelenleg.
+        </p>
+      }
+
+    </div>
+  }
+
+</section>
